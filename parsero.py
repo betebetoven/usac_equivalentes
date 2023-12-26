@@ -98,7 +98,8 @@ class parsero:
             '''calculo : SERIE LEFTPAREN calculo COMA calculo RIGHTPAREN
                         | PARALELO LEFTPAREN calculo COMA calculo RIGHTPAREN
                         | VARIABLE
-                        | NUMBER'''
+                        | NUMBER
+                        | NUM_EXPONENCIAL'''
             if p[1] == 'ser':
                 p[0] = serie(p[3], p[5])
             elif p[1] == 'par':
