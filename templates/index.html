@@ -113,59 +113,60 @@
                 opacity: 1;
             }
         }
-        /* Add more styling as needed */
-        /* Style for 'par' keyword */
-.cm-style-par {
-    color: #569cd6; /* Blue shade */
-}
+            /* Add more styling as needed */
+            /* Style for 'par' keyword */
+        .cm-style-par {
+            color: #569cd6; /* Blue shade */
+        }
 
-/* Style for 'ser' keyword */
-.cm-style-ser {
-    color: #c586c0; /* Soft purple */
-}
+        /* Style for 'ser' keyword */
+        .cm-style-ser {
+            color: #c586c0; /* Soft purple */
+        }
 
-/* Style for 'contexto' keyword */
-.cm-style-contexto {
-    color: #dcdcaa; /* Lighter blue */
-}
+        /* Style for 'contexto' keyword */
+        .cm-style-contexto {
+            color: #dcdcaa; /* Lighter blue */
+        }
 
-/* Style for parentheses */
-.cm-style-parentheses {
-    color: #d4d4d4; /* Light gray, less emphasis on parentheses */
-}
+        /* Style for parentheses */
+        .cm-style-parentheses {
+            color: #d4d4d4; /* Light gray, less emphasis on parentheses */
+        }
 
-/* Style for variables */
-.cm-style-variable {
-    color: #ce9178; /* Orange-brown, good for variables */
-}
-.cm-style-rc {
-    color: #9cdcfe; /* Blue shade, professional and distinct */
-}
-/* Styles for nested parentheses */
-.cm-style-1 {
-    color: #d19a66; /* Burnt Orange, distinct and clear */
-}
+        /* Style for variables */
+        .cm-style-variable {
+            color: #ce9178; /* Orange-brown, good for variables */
+        }
+        .cm-style-rc {
+            color: #9cdcfe; /* Blue shade, professional and distinct */
+        }
+        /* Styles for nested parentheses */
+        .cm-style-1 {
+            color: #d19a66; /* Burnt Orange, distinct and clear */
+        }
 
-.cm-style-2 {
-    color: #56b6c2; /* Cerulean, vibrant and professional */
-}
+        .cm-style-2 {
+            color: #56b6c2; /* Cerulean, vibrant and professional */
+        }
 
-.cm-style-3 {
-    color: #98c379; /* Soft Green, easy on the eyes */
-}
+        .cm-style-3 {
+            color: #98c379; /* Soft Green, easy on the eyes */
+        }
 
-.CodeMirror {
-    font-size: 20px; /* or any other size you prefer */
-    height: max;
-    /*make border round and soft*/
-    border-radius: 5px;
-}
+        .CodeMirror {
+            font-size: 20px; /* or any other size you prefer */
+            height: max;
+            /*make border round and soft*/
+            border-radius: 5px;
+        }
 
 
     </style>
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchbrackets.min.js"></script>
 
     <!-- Include any modes you need -->
     
@@ -227,7 +228,8 @@
                 value: inputContent,
                 mode: "custom-mode",
                 lineNumbers: true,
-                theme: "dracula"
+                theme: "dracula",
+                matchBrackets: true
             });
         };
         function updateInput() {
