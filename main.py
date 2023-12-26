@@ -1,8 +1,10 @@
 from fastapi import FastAPI, Request, Form
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from parsero import parsero  # Ensure this is your parser class
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")  # Ensure your templates are in the "templates" directory
 
 @app.get("/")
