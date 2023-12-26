@@ -17,12 +17,19 @@ class serie:
         self.value1 = value1
         self.value2 = value2
     def __call__(self, symbol_table):
+        #validacion valor 1
         if isinstance(self.value1, serie) or isinstance(self.value1, paralelo):
             value1 = self.value1(symbol_table)
+        elif isinstance(self.value1, int) or isinstance(self.value1, float):
+            value1 = self.value1
         else:
             value1 = symbol_table[self.value1]
+            
+        #validacion valor 2
         if isinstance(self.value2, serie) or isinstance(self.value2, paralelo):
             value2 = self.value2(symbol_table)
+        elif isinstance(self.value2, int) or isinstance(self.value2, float):
+            value2 = self.value2
         else:
             value2 = symbol_table[self.value2]
             
@@ -38,12 +45,19 @@ class paralelo:
         self.value1 = value1
         self.value2 = value2
     def __call__(self, symbol_table):
+        #validacion valor 1
         if isinstance(self.value1, serie) or isinstance(self.value1, paralelo):
             value1 = self.value1(symbol_table)
+        elif isinstance(self.value1, int) or isinstance(self.value1, float):
+            value1 = self.value1
         else:
             value1 = symbol_table[self.value1]
+            
+        #validacion valor 2
         if isinstance(self.value2, serie) or isinstance(self.value2, paralelo):
             value2 = self.value2(symbol_table)
+        elif isinstance(self.value2, int) or isinstance(self.value2, float):
+            value2 = self.value2
         else:
             value2 = symbol_table[self.value2]
         #now lets check if we are working with capacitance or resistance
