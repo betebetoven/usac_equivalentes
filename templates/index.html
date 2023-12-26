@@ -165,6 +165,21 @@
             font-weight: bold; /* Make matching brackets bold */
             background-color: #444; /* Background color for matching brackets */
         }
+        button {
+            background-color: #50b3a2; /* Matching the header's background */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px; /* Space between the button and the form */
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #429488; /* Slightly darker shade on hover */
+        }
 
 
     </style>
@@ -178,6 +193,10 @@
 
     <!-- Custom Script for initializing CodeMirror and defining custom mode -->
     <script>
+        function setExample() {
+            var exampleText = 'contexto = C;\nC1 = 10;\nC2 = 20;\nC3 = 30;\nser(par(C1,C2),C3)';
+            editor.setValue(exampleText);
+        }
         // Define custom syntax highlighting rules
         var parenthesisLevels = 0;
         CodeMirror.defineMode("custom-mode", function() {
@@ -257,11 +276,13 @@
     </header>
     
     <div class="container">
+        <button onclick="setExample()">Ver Ejemplo</button>
         <form method="post">
             <div id="code-editor">{{ input_text }}</div>
             <input type="hidden" name="input_text" id="hidden-input">
             <input type="submit" value="Calcular" onclick="updateInput()">
         </form>
+        
         {% if result is not none %}
             <div class="result-container">
                 <h2>Parsed Output:</h2>
