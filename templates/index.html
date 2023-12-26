@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
     <title>Calculadora de Equivalentes</title>
     <style>
         body {
@@ -16,6 +18,7 @@
             margin: auto;
             overflow: hidden;
             padding-top: 30px;
+            color: #f4f4f4;
         }
         header {
             background: #50b3a2;
@@ -111,9 +114,124 @@
             }
         }
         /* Add more styling as needed */
+        /* Style for 'par' keyword */
+.cm-style-par {
+    color: #569cd6; /* Blue shade */
+}
+
+/* Style for 'ser' keyword */
+.cm-style-ser {
+    color: #c586c0; /* Soft purple */
+}
+
+/* Style for 'contexto' keyword */
+.cm-style-contexto {
+    color: #dcdcaa; /* Lighter blue */
+}
+
+/* Style for parentheses */
+.cm-style-parentheses {
+    color: #d4d4d4; /* Light gray, less emphasis on parentheses */
+}
+
+/* Style for variables */
+.cm-style-variable {
+    color: #ce9178; /* Orange-brown, good for variables */
+}
+.cm-style-rc {
+    color: #9cdcfe; /* Blue shade, professional and distinct */
+}
+/* Styles for nested parentheses */
+.cm-style-1 {
+    color: #5ccfe6; /* Cyan, clear yet not too bright */
+}
+
+.cm-style-2 {
+    color: #b489c5; /* Muted Purple, professional and soft */
+}
+
+.cm-style-3 {
+    color: #e0af68; /* Muted Orange, visible but not overpowering */
+}
+.CodeMirror {
+    font-size: 20px; /* or any other size you prefer */
+    height: max;
+}
+
+
     </style>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+
+    <!-- Include any modes you need -->
+    
+
+    <!-- Custom Script for initializing CodeMirror and defining custom mode -->
+    <script>
+        // Define custom syntax highlighting rules
+        var parenthesisLevels = 0;
+        CodeMirror.defineMode("custom-mode", function() {
+            
+            var styles = ["style-1", "style-2", "style-3"];
+        
+            return {
+                token: function(stream, state) {
+                    if (stream.match("contexto")) {
+                        state.afterContexto = true;
+                        return "style-contexto";
+                    } else if(stream.match(/^(R|C)\b/)) {
+                        return "style-rc";
+                    } else if (stream.match(/^(par|ser)\b/)) {
+                        return "style-" + stream.current();
+                    } else if (stream.match(/[\(\)]/)) {
+                        console.log("nivel: ",parenthesisLevels);
+                        
+                        var style = styles[parenthesisLevels % styles.length];
+        
+                        if (stream.current() === '(') {
+                            parenthesisLevels++;
+                            style = styles[parenthesisLevels % styles.length];
+                            
+                        } 
+                        if (stream.current() === ')') {
+                            
+                            style = styles[parenthesisLevels % styles.length];
+                            parenthesisLevels--;
+                        }
+        
+                        return style;
+                    } else if (stream.match(/^[a-zA-Z_][a-zA-Z0-9_]*/)) {
+                        return "style-variable";
+                    }
+        
+                    state.afterContexto = false;
+                    stream.next();
+                    return null;
+                }
+            };
+        });
+        
+        
+        
+
+        // Initialize CodeMirror on the "code-editor" div after the DOM is fully loaded
+        var editor; // Declare it outside the window.onload function
+
+        window.onload = function() {
+            var inputContent = document.getElementById("code-editor").textContent.trim();
+            editor = CodeMirror(document.getElementById("code-editor"), {
+                value: inputContent,
+                mode: "custom-mode",
+                lineNumbers: true,
+                theme: "dracula"
+            });
+        };
+        function updateInput() {
+            var codeContent = editor.getValue();
+            document.getElementById("hidden-input").value = codeContent;
+        }
+    </script>
     <header>
         <div class="container">
             <div id="branding">
@@ -130,8 +248,9 @@
     
     <div class="container">
         <form method="post">
-            <textarea name="input_text">{{ input_text }}</textarea><br>
-            <input type="submit" value="Calcular">
+            <div id="code-editor">{{ input_text }}</div>
+            <input type="hidden" name="input_text" id="hidden-input">
+            <input type="submit" value="Calcular" onclick="updateInput()">
         </form>
         {% if result is not none %}
             <div class="result-container">
