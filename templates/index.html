@@ -6,6 +6,7 @@
     <title>Calculadora de Equivalentes</title>
     <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
     <!-- Open Graph Protocol for enhanced link sharing -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="https://f2equivalentes.fly.dev/static/favicon.svg">
     <meta property="og:title" content="Calculadora de Equivalentes">
     <meta property="og:description" content="Una herramienta interactiva para calcular equivalentes.">
@@ -185,6 +186,52 @@
         button:hover {
             background-color: #429488; /* Slightly darker shade on hover */
         }
+        /* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding-top: 15px;
+    }
+
+    header h1,
+    header nav ul li a {
+        font-size: 14px;
+    }
+
+    header nav {
+        margin-top: 5px;
+    }
+
+    .CodeMirror {
+        font-size: 14px; /* Smaller font size for CodeMirror on mobile */
+    }
+
+    input[type="submit"],
+    button {
+        font-size: 16px; /* Larger font size for better tap-ability on mobile */
+        padding: 12px 20px; /* Larger padding for a larger tap area */
+    }
+
+    .result-container {
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    /* Adjust the font size of key elements within the results for better readability on mobile */
+    .result-item .key {
+        font-size: 14px;
+    }
+}
+
+/* You can add more media queries for even smaller screens if needed */
+@media (max-width: 480px) {
+    header h1,
+    header nav ul li a {
+        font-size: 12px;
+    }
+
+    /* ...other styles as needed */
+}
 
 
     </style>
