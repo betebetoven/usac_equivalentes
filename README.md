@@ -72,6 +72,7 @@ Este comando significa que primero se calcula el paralelo entre `a` y `b`, y al 
 ## Ejemplo
 
 Para ver un ejemplo de cómo utilizar la herramienta, simplemente presione el botón **Ver Ejemplo** en la aplicación. Este botón cargará un caso de uso típico en el editor para su revisión y experimentación.
+![Ejemplo de Uso](https://github.com/betebetoven/usac_equivalentes/blob/main/example/pic1.png)
 ```
 contexto = C;
 C1 = 10;
