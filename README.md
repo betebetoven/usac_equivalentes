@@ -78,5 +78,7 @@ contexto = C;
 C1 = 10;
 C2 = 20;
 C3 = 30;
-ser(par(C1,C2),C3)
+C4 = 40;
+C5 = 50;
+ser(ser(par(par(C1,C2),C3),C4),C5)
 ```
