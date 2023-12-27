@@ -85,14 +85,12 @@ class parsero:
                 
         def p_expression(p):
             '''expression : asignacion
-                        | calculo
+                        | calculo PUNTOYCOMA
                         | error
                         '''
             p[0] = p[1]
         def p_asignacion(p):
-            '''asignacion : VARIABLE IGUAL NUMBER PUNTOYCOMA
-                            | VARIABLE IGUAL NUM_EXPONENCIAL PUNTOYCOMA
-                            | VARIABLE IGUAL VARIABLE PUNTOYCOMA'''
+            '''asignacion : VARIABLE IGUAL calculo PUNTOYCOMA'''
             p[0] = asignacion(p[1], p[3])
         def p_calculo(p):
             '''calculo : SERIE LEFTPAREN calculo COMA calculo RIGHTPAREN
@@ -107,7 +105,7 @@ class parsero:
             else:
                 p[0] = p[1]
         def p_error(p):
-            #print(f'Syntax error at {p.value!r}')
+            print(f'Syntax error at {p.value!r}')
             p[0] =  {'error': f'Syntax error at {p.value!r}'}
 
 

@@ -46,7 +46,7 @@ R1 = 5.5;
 Para calcular el equivalente en paralelo entre dos valores, se utiliza la instrucción `par`. La sintaxis es la siguiente:
 
 ```
-par(valor1, valor2)
+par(valor1, valor2);
 ```
 
 Los valores pueden ser números, variables definidas previamente o incluso otras operaciones.
@@ -56,7 +56,7 @@ Los valores pueden ser números, variables definidas previamente o incluso otras
 De manera similar, para calcular el equivalente en serie se utiliza `ser`:
 
 ```
-ser(valor1, valor2)
+ser(valor1, valor2);
 ```
 
 Al igual que con `par`, los valores pueden ser numéricos, variables o combinaciones de operaciones.
@@ -66,7 +66,7 @@ Al igual que con `par`, los valores pueden ser numéricos, variables o combinaci
 La herramienta permite anidar operaciones de `ser` y `par` para representar configuraciones más complejas de circuitos. Por ejemplo:
 
 ```
-ser(par(a, b), c)
+ser(par(a, b), c);
 ```
 
 Este comando significa que primero se calcula el paralelo entre `a` y `b`, y al resultado se le calcula la serie con `c`. Es importante siempre utilizar solo dos parámetros dentro de los paréntesis y separarlos con una coma.
@@ -82,6 +82,6 @@ C2 = 20;
 C3 = 30;
 C4 = 40;
 C5 = 50;
-ser(ser(par(par(C1,C2),C3),C4),C5)
+ser(ser(par(par(C1,C2),C3),C4),C5);
 ```
 [Calculadora de Equivalentes](https://f2equivalentes.fly.dev/)
