@@ -8,6 +8,9 @@ class asignacion:
         #if self value is instance of serie or paralelo, we call it as a function
         if isinstance(self.value, serie) or isinstance(self.value, paralelo):
             self.value = self.value(context)
+        #now if its a variable, we get the value from the dict
+        elif isinstance(self.value, str) and self.value != 'C' and self.value != 'R':
+            self.value = context[self.value]
         
         context[self.id] = self.value
         return f'Asignacion de {self.id} a {str(self.value)}'
