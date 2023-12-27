@@ -1,5 +1,7 @@
 
 # Manual de Uso: Calculadora de Equivalentes
+[Calculadora de Equivalentes](https://f2equivalentes.fly.dev/)
+
 
 Este documento sirve como guía para utilizar la Calculadora de Equivalentes, una herramienta diseñada para facilitar el cálculo de equivalentes en circuitos, ya sean de resistencias o capacidades.
 
