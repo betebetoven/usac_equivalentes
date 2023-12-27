@@ -84,4 +84,18 @@ C4 = 40;
 C5 = 50;
 ser(ser(par(par(C1,C2),C3),C4),C5);
 ```
+o bien 
+```
+contexto = C;
+C1 = 10;
+C2 = 20;
+C3 = 30;
+C4 = 40;
+C5 = 50;
+paraleloC12 = par(C1,C2);
+paraleloC123 = par(paraleloC12,C3);
+serieC45 = ser(C4,C5);
+par(paraleloC123,serieC45);
+
+```
 [Calculadora de Equivalentes](https://f2equivalentes.fly.dev/)
