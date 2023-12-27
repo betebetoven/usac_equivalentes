@@ -1,6 +1,6 @@
 
 # Manual de Uso: Calculadora de Equivalentes
-[Calculadora de Equivalentes](https://f2equivalentes.fly.dev/)
+Ingresa al sitio aquí [Calculadora de Equivalentes](https://f2equivalentes.fly.dev/)
 
 
 Este documento sirve como guía para utilizar la Calculadora de Equivalentes, una herramienta diseñada para facilitar el cálculo de equivalentes en circuitos, ya sean de resistencias o capacidades.
@@ -84,3 +84,4 @@ C4 = 40;
 C5 = 50;
 ser(ser(par(par(C1,C2),C3),C4),C5)
 ```
+[Calculadora de Equivalentes](https://f2equivalentes.fly.dev/)
