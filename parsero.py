@@ -7,19 +7,18 @@ from asignacion import asignacion, serie, paralelo
 class parsero:
     def __init__(self, tabla):
         self.TABLA_DE_SIMBOLOS = tabla
-        tokens = ('NUMBER', 'VARIABLE', 'PARALELO', 'SERIE', 'LEFTPAREN', 'RIGHTPAREN', 'COMA', 'PUNTOYCOMA', 'IGUAL', 'NUM_EXPONENCIAL')
+        tokens = ('NUMBER', 'VARIABLE', 'PARALELO', 'SERIE', 'RIGHTPAREN', 'COMA', 'PUNTOYCOMA', 'IGUAL', 'NUM_EXPONENCIAL')
         t_ignore = ' \t\r'
         t_COMA = r','
         t_PUNTOYCOMA = r';'
-        t_LEFTPAREN = r'\('
         t_RIGHTPAREN = r'\)'
         t_IGUAL = r'='
 
         def t_SERIE(t):
-            r'ser'
+            r'ser\('
             return t
         def t_PARALELO(t):
-            r'par'
+            r'par\('
             return t
 
 
@@ -93,15 +92,15 @@ class parsero:
             '''asignacion : VARIABLE IGUAL calculo PUNTOYCOMA'''
             p[0] = asignacion(p[1], p[3])
         def p_calculo(p):
-            '''calculo : SERIE LEFTPAREN calculo COMA calculo RIGHTPAREN
-                        | PARALELO LEFTPAREN calculo COMA calculo RIGHTPAREN
+            '''calculo : SERIE calculo COMA calculo RIGHTPAREN
+                        | PARALELO calculo COMA calculo RIGHTPAREN
                         | VARIABLE
                         | NUMBER
                         | NUM_EXPONENCIAL'''
-            if p[1] == 'ser':
-                p[0] = serie(p[3], p[5])
-            elif p[1] == 'par':
-                p[0] = paralelo(p[3], p[5])
+            if p[1] == 'ser(':
+                p[0] = serie(p[2], p[4])
+            elif p[1] == 'par(':
+                p[0] = paralelo(p[2], p[4])
             else:
                 p[0] = p[1]
         def p_error(p):

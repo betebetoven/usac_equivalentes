@@ -10,7 +10,7 @@ class asignacion:
             self.value = self.value(context)
         
         context[self.id] = self.value
-        return f'Asignacion de {self.id} a {self.value}'
+        return f'Asignacion de {self.id} a {str(self.value)}'
         
 # class serie it will have two values as a constructor, it either can be a variable in the dict or an object from the class 
 #serie or this clas(paralelo), each class also has a call function that will return the value of the object
