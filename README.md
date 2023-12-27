@@ -94,8 +94,8 @@ C4 = 40;
 C5 = 50;
 paraleloC12 = par(C1,C2);
 paraleloC123 = par(paraleloC12,C3);
-serieC45 = ser(C4,C5);
-ser(paraleloC123,serieC45);
+serieC1234 = ser(paraleloC123,C4);
+ser(serieC1234, C5);
 
 ```
 [Calculadora de Equivalentes](https://f2equivalentes.fly.dev/)
