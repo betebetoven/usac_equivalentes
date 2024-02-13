@@ -2,6 +2,9 @@
 # User Manual: Equivalence Calculator(Manual en español más abajo)
 Access the site here [Equivalence Calculator](https://f2equivalentes.fly.dev/)
 
+This is a Simple language made to calculate the Equivalence af capacitance or resistance in a circuit, it was done this way because when analyzing a the parallel or series of a circuit, you can see that it is
+indeed just presedences and nesting, that makes it easy for us to develop a simple grammar to rerpresent this nestings in a more natural, simple and easier way, the goal of all of this is to sasve time, and reduce typical human error, and to forget about those large calculation inside a tiny calculator. 
+The grammar can be found in the parsero.py file, It could have been different, building the whole AST object and then running it, but i think for this case let's just make it simple, for further collaborations, it might be more viable building the AST object and then running it.
 This document serves as a guide to using the Equivalence Calculator, a tool designed to facilitate the calculation of equivalents in circuits, whether for resistances or capacitances.
 
 ## Contents
