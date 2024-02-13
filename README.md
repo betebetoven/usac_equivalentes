@@ -18,8 +18,8 @@ This document serves as a guide to using the Equivalence Calculator, a tool desi
 
 The application operates under two contexts:
 
-- `context = C`: To work with **capacitances**.
-- `context = R`: To work with **resistances**.
+- `contexto = C`: To work with **capacitances**.
+- `contexto = R`: To work with **resistances**.
 
 It's important to note that the application is *case sensitive*. This means that the use of uppercase and lowercase must be respected as shown in the examples.
 
