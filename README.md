@@ -1,4 +1,108 @@
 
+# User Manual: Equivalence Calculator(Manual en español más abajo)
+Access the site here [Equivalence Calculator](https://f2equivalentes.fly.dev/)
+
+This document serves as a guide to using the Equivalence Calculator, a tool designed to facilitate the calculation of equivalents in circuits, whether for resistances or capacitances.
+
+## Contents
+
+- [Initial Setup](#initial-setup)
+- [Variable Assignment](#variable-assignment)
+- [Equivalence Calculation](#equivalence-calculation)
+  - [Parallel](#parallel)
+  - [Series](#series)
+  - [Nesting Operations](#nesting-operations)
+- [Example](#example)
+
+## Initial Setup
+
+The application operates under two contexts:
+
+- `context = C`: To work with **capacitances**.
+- `context = R`: To work with **resistances**.
+
+It's important to note that the application is *case sensitive*. This means that the use of uppercase and lowercase must be respected as shown in the examples.
+
+## Variable Assignment
+
+To assign a variable, the following syntax is used:
+
+```
+variable_id = value;
+```
+
+This structure adds a variable to the program's memory. As many variables as needed can be defined. For example:
+
+```
+C1 = 10;
+R1 = 5.5;
+```
+
+## Equivalence Calculation
+
+### Parallel
+
+To calculate the equivalent in parallel between two values, the `par` instruction is used. The syntax is as follows:
+
+```
+par(value1, value2);
+```
+
+Values can be numbers, previously defined variables, or even other operations.
+
+### Series
+
+Similarly, to calculate the equivalent in series, `ser` is used:
+
+```
+ser(value1, value2);
+```
+
+Like with `par`, the values can be numeric, variables, or combinations of operations.
+
+### Nesting Operations
+
+The tool allows for nesting `ser` and `par` operations to represent more complex circuit configurations. For example:
+
+```
+ser(par(a, b), c);
+```
+
+This command means that the parallel between `a` and `b` is first calculated, and then the series with `c` is calculated. It's important to always use only two parameters within the parentheses and separate them with a comma.
+
+## Example
+
+To see an example of how to use the tool, simply press the **See Example** button in the application. This button will load a typical use case in the editor for your review and experimentation.
+![Example of Use](https://github.com/betebetoven/usac_equivalentes/blob/main/example/pic1.png)
+```
+contexto = C;
+C1 = 10;
+C2 = 20;
+C3 = 30;
+C4 = 40;
+C5 = 50;
+ser(ser(par(par(C1,C2),C3),C4),C5);
+```
+or
+```
+contexto = C;
+C1 = 10;
+C2 = 20;
+C3 = 30;
+C4 = 40;
+C5 = 50;
+parallelC12 = par(C1,C2);
+parallelC123 = par(parallelC12,C3);
+seriesC1234 = ser(parallelC123,C4);
+ser(seriesC1234, C5);
+
+```
+[Equivalence Calculator](https://f2equivalentes.fly.dev/)
+
+
+
+
+
 # Manual de Uso: Calculadora de Equivalentes
 Ingresa al sitio aquí [Calculadora de Equivalentes](https://f2equivalentes.fly.dev/)
 
